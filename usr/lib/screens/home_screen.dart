@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/app_provider.dart';
+import '../models/event.dart';
+import '../models/news.dart';
 import '../widgets/event_card.dart';
 import '../widgets/news_card.dart';
 import '../widgets/search_bar.dart';
@@ -83,19 +85,20 @@ class HomeScreen extends StatelessWidget {
   Widget _buildBottomNav(BuildContext context) {
     return BottomNavigationBar(
       currentIndex: 0,
+      type: BottomNavigationBarType.fixed,
       onTap: (index) {
         switch (index) {
           case 0:
-            Navigator.pushReplacementNamed(context, '/');
+            // Already on home
             break;
           case 1:
-            Navigator.pushNamed(context, '/events');
+            Navigator.pushReplacementNamed(context, '/events');
             break;
           case 2:
-            Navigator.pushNamed(context, '/news');
+            Navigator.pushReplacementNamed(context, '/news');
             break;
           case 3:
-            Navigator.pushNamed(context, '/add-event');
+            Navigator.pushReplacementNamed(context, '/add-event');
             break;
         }
       },

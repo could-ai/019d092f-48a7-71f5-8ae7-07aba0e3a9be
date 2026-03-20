@@ -103,8 +103,8 @@ class AppProvider extends ChangeNotifier {
 
   // Get trending items (mock - most recent)
   List<dynamic> getTrending() {
-    final allItems = [..._events, ..._news];
-    allItems.sort((a, b) => b.createdAt.compareTo(a.createdAt));
+    final allItems = <dynamic>[..._events, ..._news];
+    allItems.sort((a, b) => (b.createdAt as DateTime).compareTo(a.createdAt as DateTime));
     return allItems.take(5).toList();
   }
 }
